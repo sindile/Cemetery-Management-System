@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="wincem" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\jschmidt\\documents\\visual\ studio\ 2012\\Projects\\wincem\\wincem\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\jschmidt\\documents\\visual\ studio\ 2012\\Projects\\wincem\\wincem\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="cemeteryContext-Web.config Connection String" description="" value="Data Source=tcp:s48426k111.database.windows.net,1433;Initial Catalog=wincemAvdITsV5sx;User Id=jmschmidt7@s48426k111;Password=Jm724405!" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jschmidt\\documents\\visual\ studio\ 2012\\Projects\\wincem\\wincem\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cemeteryContext']/@connectionString" />
+  </parameter>
+</parameters>

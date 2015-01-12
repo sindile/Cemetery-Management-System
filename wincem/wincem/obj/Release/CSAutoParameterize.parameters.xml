@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="cemeteryContext-Web.config Connection String" description="cemeteryContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:s48426k111.database.windows.net,1433;Database=wincemAvdITsV5sx;User ID=jmschmidt7@s48426k111;Password=Jm724405!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jschmidt\\documents\\visual\ studio\ 2012\\Projects\\wincem\\wincem\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cemeteryContext']/@connectionString" />
+  </parameter>
+  <parameter name="cemeteryContext_DatabasePublish-Web.config Connection String" description="cemeteryContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="cemeteryContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jschmidt\\documents\\visual\ studio\ 2012\\Projects\\wincem\\wincem\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cemeteryContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="cemetery" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="cemeteryContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ownership_Records" EntityType="cemetery.Ownership_Records" />
+    <EntitySet Name="Burial_Records" EntityType="cemetery.Burial_Records" />
+    <AssociationSet Name="Ownership_RecordsBurial_Records" Association="cemetery.Ownership_RecordsBurial_Records">
+      <End Role="Ownership_Records" EntitySet="Ownership_Records" />
+      <End Role="Burial_Records" EntitySet="Burial_Records" />
+    </AssociationSet>
+    <EntitySet Name="Owner_Spaces" EntityType="cemetery.Owner_Spaces" />
+    <AssociationSet Name="Ownership_RecordsOwner_Spaces" Association="cemetery.Ownership_RecordsOwner_Spaces">
+      <End Role="Ownership_Records" EntitySet="Ownership_Records" />
+      <End Role="Owner_Spaces" EntitySet="Owner_Spaces" />
+    </AssociationSet>
+    <EntitySet Name="Assignment_Records" EntityType="cemetery.Assignment_Records" />
+    <EntitySet Name="Relatives" EntityType="cemetery.Relatives" />
+    <AssociationSet Name="Burial_RecordsRelatives" Association="cemetery.Burial_RecordsRelatives">
+      <End Role="Burial_Records" EntitySet="Burial_Records" />
+      <End Role="Relatives" EntitySet="Relatives" />
+    </AssociationSet>
+    <AssociationSet Name="Owner_SpacesAssignment_Records" Association="cemetery.Owner_SpacesAssignment_Records">
+      <End Role="Owner_Spaces" EntitySet="Owner_Spaces" />
+      <End Role="Assignment_Records" EntitySet="Assignment_Records" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ownership_Records">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Deed_No" Nullable="false" />
+    <Property Type="String" Name="Deed_Type" Nullable="false" />
+    <Property Type="DateTime" Name="Date_of_Purchase" Nullable="false" />
+    <Property Type="String" Name="Amount_Paid" Nullable="false" />
+    <Property Type="String" Name="Owner_Name" Nullable="false" />
+    <Property Type="String" Name="Owner_Address" Nullable="false" />
+    <Property Type="String" Name="Phone" Nullable="false" />
+    <Property Type="String" Name="Deed_Name" Nullable="false" />
+    <Property Type="String" Name="LF_Deed_Card" Nullable="false" />
+    <Property Type="String" Name="LF_Cert_of_Ownership" Nullable="false" />
+    <NavigationProperty Name="Burial_Records" Relationship="cemetery.Ownership_RecordsBurial_Records" FromRole="Ownership_Records" ToRole="Burial_Records" />
+    <NavigationProperty Name="Spaces" Relationship="cemetery.Ownership_RecordsOwner_Spaces" FromRole="Ownership_Records" ToRole="Owner_Spaces" />
+  </EntityType>
+  <EntityType Name="Burial_Records">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Ownership_Records" Relationship="cemetery.Ownership_RecordsBurial_Records" FromRole="Burial_Records" ToRole="Ownership_Records" />
+    <Property Type="Int32" Name="Ownership_ID" Nullable="false" />
+    <NavigationProperty Name="Relatives" Relationship="cemetery.Burial_RecordsRelatives" FromRole="Burial_Records" ToRole="Relatives" />
+    <Property Type="String" Name="Mortuary" Nullable="false" />
+    <Property Type="String" Name="Moruary_Phone" Nullable="false" />
+    <Property Type="String" Name="Cremation" Nullable="false" />
+    <Property Type="String" Name="Garden" Nullable="false" />
+    <Property Type="String" Name="Container" Nullable="false" />
+    <Property Type="String" Name="First_Name" Nullable="false" />
+    <Property Type="String" Name="Last_Name" Nullable="false" />
+    <Property Type="String" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="DateOfDeath" Nullable="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="false" />
+    <Property Type="String" Name="Permit_Number" Nullable="false" />
+    <Property Type="String" Name="Work_Order_Date" Nullable="false" />
+    <Property Type="String" Name="Remarks" Nullable="false" />
+    <Property Type="String" Name="Photo" Nullable="false" />
+    <Property Type="String" Name="Birth_City_State" Nullable="false" />
+    <Property Type="String" Name="Birth_County" Nullable="false" />
+    <Property Type="String" Name="Death_City_State" Nullable="false" />
+    <Property Type="String" Name="Death_County" Nullable="false" />
+    <Property Type="String" Name="Other_Information" Nullable="false" />
+    <Property Type="String" Name="Military_Service" Nullable="false" />
+    <Property Type="String" Name="LF_Burial_Record" Nullable="false" />
+  </EntityType>
+  <Association Name="Ownership_RecordsBurial_Records">
+    <End Type="cemetery.Ownership_Records" Role="Ownership_Records" Multiplicity="1" />
+    <End Type="cemetery.Burial_Records" Role="Burial_Records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ownership_Records" />
+      <Dependent Role="Burial_Records" />
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Owner_Spaces">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Ownership" Relationship="cemetery.Ownership_RecordsOwner_Spaces" FromRole="Owner_Spaces" ToRole="Ownership_Records" />
+    <Property Type="Int32" Name="Ownership_ID" Nullable="false" />
+    <Property Type="Int32" Name="Space_ID" Nullable="false" />
+    <NavigationProperty Name="Assignments" Relationship="cemetery.Owner_SpacesAssignment_Records" FromRole="Owner_Spaces" ToRole="Assignment_Records" />
+  </EntityType>
+  <Association Name="Ownership_RecordsOwner_Spaces">
+    <End Type="cemetery.Ownership_Records" Role="Ownership_Records" Multiplicity="1" />
+    <End Type="cemetery.Owner_Spaces" Role="Owner_Spaces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ownership_Records" />
+      <Dependent Role="Owner_Spaces" />
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Assignment_Records">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Date_Assigned" Nullable="false" />
+    <Property Type="Int32" Name="Original_Owner_ID" Nullable="false" />
+    <Property Type="Int32" Name="New_Owner_ID" Nullable="false" />
+    <NavigationProperty Name="Space" Relationship="cemetery.Owner_SpacesAssignment_Records" FromRole="Assignment_Records" ToRole="Owner_Spaces" />
+    <Property Type="Int32" Name="Space_ID" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Relatives">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Burial_Record" Relationship="cemetery.Burial_RecordsRelatives" FromRole="Relatives" ToRole="Burial_Records" />
+    <Property Type="String" Name="Space_ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Relationship" Nullable="false" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="false" />
+    <Property Type="String" Name="DeathDate" Nullable="false" />
+    <Property Type="Int32" Name="Burial_ID" Nullable="false" />
+  </EntityType>
+  <Association Name="Burial_RecordsRelatives">
+    <End Type="cemetery.Burial_Records" Role="Burial_Records" Multiplicity="1" />
+    <End Type="cemetery.Relatives" Role="Relatives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Burial_Records" />
+      <Dependent Role="Relatives" />
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Owner_SpacesAssignment_Records">
+    <End Type="cemetery.Owner_Spaces" Role="Owner_Spaces" Multiplicity="1" />
+    <End Type="cemetery.Assignment_Records" Role="Assignment_Records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner_Spaces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assignment_Records">
+        <PropertyRef Name="Space_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="Gender">
+    <Member Name="Male" />
+    <Member Name="Female" />
+  </EnumType>
+</Schema>

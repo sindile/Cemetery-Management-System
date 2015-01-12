@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cemeteryStoreContainer" CdmEntityContainer="cemeteryContext">
+    <EntitySetMapping Name="Ownership_Records">
+      <EntityTypeMapping TypeName="IsTypeOf(cemetery.Ownership_Records)">
+        <MappingFragment StoreEntitySet="Ownership_Records">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Deed_No" ColumnName="Deed_No" />
+          <ScalarProperty Name="Deed_Type" ColumnName="Deed_Type" />
+          <ScalarProperty Name="Date_of_Purchase" ColumnName="Date_of_Purchase" />
+          <ScalarProperty Name="Amount_Paid" ColumnName="Amount_Paid" />
+          <ScalarProperty Name="Owner_Name" ColumnName="Owner_Name" />
+          <ScalarProperty Name="Owner_Address" ColumnName="Owner_Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Deed_Name" ColumnName="Deed_Name" />
+          <ScalarProperty Name="LF_Deed_Card" ColumnName="LF_Deed_Card" />
+          <ScalarProperty Name="LF_Cert_of_Ownership" ColumnName="LF_Cert_of_Ownership" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Burial_Records">
+      <EntityTypeMapping TypeName="IsTypeOf(cemetery.Burial_Records)">
+        <MappingFragment StoreEntitySet="Burial_Records">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ownership_ID" ColumnName="Ownership_ID" />
+          <ScalarProperty Name="Mortuary" ColumnName="Mortuary" />
+          <ScalarProperty Name="Moruary_Phone" ColumnName="Moruary_Phone" />
+          <ScalarProperty Name="Cremation" ColumnName="Cremation" />
+          <ScalarProperty Name="Garden" ColumnName="Garden" />
+          <ScalarProperty Name="Container" ColumnName="Container" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Permit_Number" ColumnName="Permit_Number" />
+          <ScalarProperty Name="Work_Order_Date" ColumnName="Work_Order_Date" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Birth_City_State" ColumnName="Birth_City_State" />
+          <ScalarProperty Name="Birth_County" ColumnName="Birth_County" />
+          <ScalarProperty Name="Death_City_State" ColumnName="Death_City_State" />
+          <ScalarProperty Name="Death_County" ColumnName="Death_County" />
+          <ScalarProperty Name="Other_Information" ColumnName="Other_Information" />
+          <ScalarProperty Name="Military_Service" ColumnName="Military_Service" />
+          <ScalarProperty Name="LF_Burial_Record" ColumnName="LF_Burial_Record" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Owner_Spaces">
+      <EntityTypeMapping TypeName="IsTypeOf(cemetery.Owner_Spaces)">
+        <MappingFragment StoreEntitySet="Owner_Spaces">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ownership_ID" ColumnName="Ownership_ID" />
+          <ScalarProperty Name="Space_ID" ColumnName="Space_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Assignment_Records">
+      <EntityTypeMapping TypeName="IsTypeOf(cemetery.Assignment_Records)">
+        <MappingFragment StoreEntitySet="Assignment_Records">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date_Assigned" ColumnName="Date_Assigned" />
+          <ScalarProperty Name="Original_Owner_ID" ColumnName="Original_Owner_ID" />
+          <ScalarProperty Name="New_Owner_ID" ColumnName="New_Owner_ID" />
+          <ScalarProperty Name="Space_ID" ColumnName="Space_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relatives">
+      <EntityTypeMapping TypeName="IsTypeOf(cemetery.Relatives)">
+        <MappingFragment StoreEntitySet="Relatives">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Space_ID" ColumnName="Space_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="DeathDate" ColumnName="DeathDate" />
+          <ScalarProperty Name="Burial_ID" ColumnName="Burial_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,41 @@
+﻿@ModelType wincem.Burial
+<div style="width: 800px; text-align: center; font-size: 22px">CITY OF WINFIELD<br /><span style="font-weight: bold">BURIAL RECORD</span></div>
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:75px">Burial of </div><div style="border-bottom: solid black 1px;margin-left: 75px;">@Model.First_Name @Model.Last_Name</div></div>
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:200px">Individual Maus. Setting for </div><div style="border-bottom: solid black 1px;margin-left: 200px;">&nbsp;</div></div>
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:175px">Pre-Need Payment for </div><div style="border-bottom: solid black 1px;margin-left: 175px;">&nbsp;</div></div>
+<div style="width: 499px;padding-bottom: 20px; display: inline-block"><div style="float: left; width:120px">Reinterment of </div><div style="border-bottom: solid black 1px;margin-left: 120px;">&nbsp;</div></div>
+<div style="width: 292px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:40px">Date </div><div style="border-bottom: solid black 1px;margin-left: 40px;">&nbsp;</div></div><br />
+<div style="width: 499px;padding-bottom: 20px; display: inline-block"><div style="float: left; width:120px">Disinterment of </div><div style="border-bottom: solid black 1px;margin-left: 120px;">&nbsp;</div></div>
+<div style="width: 292px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:40px">Date </div><div style="border-bottom: solid black 1px;margin-left: 40px;">&nbsp;</div></div><br />
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:100px">Ordered by </div><div style="border-bottom: solid black 1px;margin-left: 100px;">@Model.Ordered_BY</div></div>
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:125px">Address/Phone </div><div style="border-bottom: solid black 1px;margin-left: 125px;">@Model.Ordered_By_Phone</div></div>
+<div style="width: 499px;padding-bottom: 20px; display: inline-block"><div style="float: left; width:55px">Owner </div><div style="border-bottom: solid black 1px;margin-left: 55px;">@Model.Owner.Owner_Name</div></div>
+<div style="width: 292px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:65px">@iif(model.Owner.Deed_Type = "A", "Assignment #", "Deed #") </div><div style="border-bottom: solid black 1px;margin-left: 65px;">@Model.Owner.Deed_No</div></div><br />
+<div style="width: 591px;padding-bottom: 20px; display: inline-block"><div style="float: left; width:175px">Date and Day of Burial </div><div style="border-bottom: solid black 1px;margin-left:175px;">&nbsp;</div></div>
+<div style="width: 200px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:50px">Time </div><div style="border-bottom: solid black 1px;margin-left: 50px;">&nbsp;</div></div><br />
+<div style="width: 150px;padding-bottom: 20px; display: inline-block"><div style="float: left; width:80px">Cremation </div><div style="border-bottom: solid black 1px;margin-left:80px;">@IIf(Model.Cremation, "Yes", "No")</div></div>
+<div style="width: 250px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:185px">Garden of Remembrance </div><div style="border-bottom: solid black 1px;margin-left: 185px;">@IIf(Model.Garden, "Yes", "No")</div></div>
+<div style="width: 382px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:125px">Type of Service </div><div style="border-bottom: solid black 1px;margin-left: 125px;">&nbsp;</div></div><br />
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:75px">Container </div><div style="border-bottom: solid black 1px;margin-left: 75px;">@Model.Container </div></div>
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:75px">Cemetery </div><div style="border-bottom: solid black 1px;margin-left: 75px;">@ViewBag.cemetery</div></div>
+<div style="width: 323px;padding-bottom: 4px; display: inline-block"><div style="float: left; width:65px">Division </div><div style="border-bottom: solid black 1px;margin-left:65px;">@ViewBag.division</div></div>
+<div style="width: 150px;padding-bottom: 4px; display: inline-block; padding-left: 5px"><div style="float: left; width:105px">Block/Section </div><div style="border-bottom: solid black 1px;margin-left: 105px;">@ViewBag.block_section</div></div>
+<div style="width: 150px;padding-bottom: 4px; display: inline-block; padding-left: 5px"><div style="float: left; width:65px">Lot/Row </div><div style="border-bottom: solid black 1px;margin-left: 65px;">@ViewBag.lot_row</div></div>
+<div style="width: 150px;padding-bottom: 4px; display: inline-block; padding-left: 5px"><div style="float: left; width:55px">Space </div><div style="border-bottom: solid black 1px;margin-left: 55px;">@ViewBag.space</div></div><br />
+<div style="width: 300px;padding-bottom: 20px; display: inline-block"><div style="float: left; width:150px">Date & Day of Death </div><div style="border-bottom: solid black 1px;margin-left:150px;">@Model.Date_of_Death.Value.DayOfWeek, @Model.Date_of_Death.Value.ToShortDateString</div></div>
+<div style="width: 110px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:60px">Gender</div><div style="border-bottom: solid black 1px;margin-left: 60px;">@Model.Gender</div>
+    <br />
+    <div style="float: left; width:45px">Age</div><div style="border-bottom: solid black 1px;margin-left: 45px;">&nbsp;</div>
+</div>
+<div style="width: 372px;padding-bottom: 20px; display: inline-block; padding-left: 5px;"><div style="float: left; width:115px">Place of Death</div><div style="border-bottom: solid black 1px;margin-left: 115px">@Model.Death_City_State &nbsp;</div></div><br />
+<div style="width: 400px;padding-bottom: 20px; display: inline-block"><div style="float: left; width:100px">Date of Birth</div><div style="border-bottom: solid black 1px;margin-left: 100px;">@IIf(Model.Date_of_Birth is Nothing, "00/00/0000", Model.Date_of_Birth.Value.ToShortDateString)</div></div>
+<div style="width: 391px;padding-bottom: 20px; display: inline-block; padding-left: 5px"><div style="float: left; width:105px">Place of Birth </div><div style="border-bottom: solid black 1px;margin-left: 105px;">@Model.Birth_City_State &nbsp;</div></div><br />
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:80px">Comments </div><div style="border-bottom: solid black 1px;margin-left: 80px;">&nbsp;</div></div>
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:0px">&nbsp; </div><div style="border-bottom: solid black 1px;margin-left: 0px;">&nbsp;</div></div>
+<div style="width: 800px;padding-bottom: 20px"><div style="float: left; width:0px">&nbsp;</div><div style="border-bottom: solid black 1px;margin-left: 0px;">&nbsp;</div></div>
+<div style="width: 400px;padding-bottom: 20px"><div style="float: left; width:150px">Fees (001-3462) </div><div style="border-bottom: solid black 1px;margin-left: 150px;">&nbsp;</div></div>
+<div style="width: 400px;padding-bottom: 20px"><div style="float: left; width:250px">Pre-Need Payment (135-3464) </div><div style="border-bottom: solid black 1px;margin-left: 250px;">&nbsp;</div></div>
+<div style="width: 400px;padding-bottom: 20px"><div style="float: left; width:250px">Space Purchase (2/3--001-3461) </div><div style="border-bottom: solid black 1px;margin-left: 250px;">&nbsp;</div></div>
+<div style="width: 400px;padding-bottom: 20px"><div style="float: left; width:230px; text-align:right;">(1/3--135-3461)</div><div style="border-bottom: solid black 1px;margin-left: 250px;">&nbsp;</div></div>
+<div style="width: 400px;padding-bottom: 20px"><div style="float: left; width:50px">Total</div><div style="border-bottom: solid black 1px;margin-left: 50px;">&nbsp;</div></div>
+<div style="width: 400px;padding-bottom: 20px"><div style="float: left; width:100px">Amount Paid</div><div style="border-bottom: solid black 1px;margin-left: 100px;">&nbsp;</div></div>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cemetery.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="cemeteryStoreContainer">
+    <EntitySet Name="Ownership_Records" EntityType="cemetery.Store.Ownership_Records" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Burial_Records" EntityType="cemetery.Store.Burial_Records" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Owner_Spaces" EntityType="cemetery.Store.Owner_Spaces" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Assignment_Records" EntityType="cemetery.Store.Assignment_Records" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Relatives" EntityType="cemetery.Store.Relatives" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="Ownership_RecordsBurial_Records" Association="cemetery.Store.Ownership_RecordsBurial_Records">
+      <End Role="Ownership_Records" EntitySet="Ownership_Records" />
+      <End Role="Burial_Records" EntitySet="Burial_Records" />
+    </AssociationSet>
+    <AssociationSet Name="Ownership_RecordsOwner_Spaces" Association="cemetery.Store.Ownership_RecordsOwner_Spaces">
+      <End Role="Ownership_Records" EntitySet="Ownership_Records" />
+      <End Role="Owner_Spaces" EntitySet="Owner_Spaces" />
+    </AssociationSet>
+    <AssociationSet Name="Burial_RecordsRelatives" Association="cemetery.Store.Burial_RecordsRelatives">
+      <End Role="Burial_Records" EntitySet="Burial_Records" />
+      <End Role="Relatives" EntitySet="Relatives" />
+    </AssociationSet>
+    <AssociationSet Name="Owner_SpacesAssignment_Records" Association="cemetery.Store.Owner_SpacesAssignment_Records">
+      <End Role="Owner_Spaces" EntitySet="Owner_Spaces" />
+      <End Role="Assignment_Records" EntitySet="Assignment_Records" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ownership_Records">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Deed_No" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Deed_Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date_of_Purchase" Type="datetime" Nullable="false" />
+    <Property Name="Amount_Paid" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Owner_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Owner_Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Deed_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LF_Deed_Card" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LF_Cert_of_Ownership" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Burial_Records">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ownership_ID" Type="int" Nullable="false" />
+    <Property Name="Mortuary" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Moruary_Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cremation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Garden" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Container" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Last_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateOfDeath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateOfBirth" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Permit_Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Work_Order_Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birth_City_State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birth_County" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Death_City_State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Death_County" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Other_Information" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Military_Service" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LF_Burial_Record" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Owner_Spaces">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ownership_ID" Type="int" Nullable="false" />
+    <Property Name="Space_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Assignment_Records">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_Assigned" Type="datetime" Nullable="false" />
+    <Property Name="Original_Owner_ID" Type="int" Nullable="false" />
+    <Property Name="New_Owner_ID" Type="int" Nullable="false" />
+    <Property Name="Space_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Relatives">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Space_ID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Relationship" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="DeathDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Burial_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Ownership_RecordsBurial_Records">
+    <End Role="Ownership_Records" Type="cemetery.Store.Ownership_Records" Multiplicity="1" />
+    <End Role="Burial_Records" Type="cemetery.Store.Burial_Records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ownership_Records">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Burial_Records">
+        <PropertyRef Name="Ownership_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ownership_RecordsOwner_Spaces">
+    <End Role="Ownership_Records" Type="cemetery.Store.Ownership_Records" Multiplicity="1" />
+    <End Role="Owner_Spaces" Type="cemetery.Store.Owner_Spaces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ownership_Records">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Owner_Spaces">
+        <PropertyRef Name="Ownership_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Burial_RecordsRelatives">
+    <End Role="Burial_Records" Type="cemetery.Store.Burial_Records" Multiplicity="1" />
+    <End Role="Relatives" Type="cemetery.Store.Relatives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Burial_Records">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Relatives">
+        <PropertyRef Name="Burial_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Owner_SpacesAssignment_Records">
+    <End Role="Owner_Spaces" Type="cemetery.Store.Owner_Spaces" Multiplicity="1" />
+    <End Role="Assignment_Records" Type="cemetery.Store.Assignment_Records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner_Spaces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assignment_Records">
+        <PropertyRef Name="Space_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
