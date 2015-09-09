@@ -10,3 +10,5 @@ Cemetery Management System
 7. Build project
  
 Also, in zip file is Cemetery_Config_Test.mpk that contains sample data to create the ArcGIS services required for the app to run (Publish as feature service and map service)
+
+DEMO SITE -> http://wincem.cloudapp.net/wincem
